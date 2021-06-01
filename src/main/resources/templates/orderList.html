@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Index</title>
+  <script type="text/javascript" th:inline="javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<header>
+  <h2>OrderList</h2>
+</header>
+<body>
+<div>
+  <a href="/"><button>На главную</button></a>
+
+<!--  <p><a th:if="${user}" th:href="@{/logout}">Logout</a></p>-->
+  <div th:each="order: ${orders}">
+    <div class="ingredient">
+      <form>
+        <p  th:text="'Client name: ' + ${order.getClientName()}"></p>
+        <p  th:text="'Client phone: ' + ${order.getClientPhone()}"></p>
+        <p  th:text="'Client order cost: ' + ${order.getCost()}"></p>
+        <ul>
+          <li th:each="ingredient: ${order.ingredients}" th:text="'Ingredient: ' + ${ingredient.getName()} + ' - ' + ${ingredient.getPrice()}"></li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

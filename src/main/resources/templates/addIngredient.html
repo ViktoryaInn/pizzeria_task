@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>AddIngredient</title>
+  <script type="text/javascript" th:inline="javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<header>
+  <h2>Add Ingredient</h2>
+</header>
+<body>
+<div>
+  <div>
+    <a href="/"><button>На главную</button></a>
+    <div class="ingredient">
+      <form th:action='${"/ingredients/add"}' method="post" name="ingredientForm">
+        <input type="text" placeholder="Ingredient name" name="name" id="name" th:required="required"/>
+        <input type="number" placeholder="Ingredient price" name="price" id="price" th:required="required"/>
+        <button class="btn btn-sm submit-btn" id="submit" type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
