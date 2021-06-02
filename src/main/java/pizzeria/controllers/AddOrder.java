@@ -14,6 +14,8 @@ import java.util.Map;
 public class AddOrder {
     DBService dbService = new DBService();
 
+    // TODO: delete this controller
+
 //    @GetMapping("/add")
 //    public ModelAndView add(){
 ////        model.addAttribute("ingredients", dbService.getListIngredient());
