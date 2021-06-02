@@ -14,7 +14,7 @@ public class Order {
 
     private int cost;
 
-    private Date date; //TODO: в контролерре устанавливать дату
+    private Date date;
 
     public Order(String id, String clientName, String clientPhone, int cost, Date date){
         this.id = id;

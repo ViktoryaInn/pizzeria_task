@@ -30,7 +30,7 @@
     </div>
   </nav>
 
-  <div class="container" style="max-width: 720px; margin-top: 10%">
+  <div class="container" style="max-width: 720px; padding-top: 10%">
     <div class="card">
       <form th:action='${"/ingredients/add"}' method="post"  name="ingredientForm" class="card-body">
         <div class="mb-3">
@@ -45,18 +45,5 @@
       </form>
     </div>
   </div>
-
-<!--<div>-->
-<!--  <div>-->
-<!--    <a href="/"><button>На главную</button></a>-->
-<!--    <div class="ingredient">-->
-<!--      <form th:action='${"/ingredients/add"}' method="post" name="ingredientForm">-->
-<!--        <input type="text" placeholder="Ingredient name" name="name" id="name" th:required="required"/>-->
-<!--        <input type="number" placeholder="Ingredient price" name="price" id="price" th:required="required"/>-->
-<!--        <button class="btn btn-sm submit-btn" id="submit" type="submit">Add</button>-->
-<!--      </form>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
 </body>
 </html>

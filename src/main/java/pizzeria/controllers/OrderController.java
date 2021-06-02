@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 import pizzeria.dbService.dataSets.Ingredient;
 import pizzeria.dbService.dataSets.Order;
 import pizzeria.models.OrderDTO;
-import pizzeria.service.IngredientService;
 import pizzeria.service.OrderService;
 
 import java.time.LocalDateTime;
@@ -24,22 +23,22 @@ public class OrderController {
     @GetMapping("/orders")
     public ModelAndView getOrders(){
         Order[] orders = orderService.getOrderList();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("orderList");
         if(orders.length == 0){
-            // TODO: to do smth
+            return modelAndView;
         }
         LinkedList<OrderDTO> responseOrders = new LinkedList<>();
         for(Order order: orders){
             Ingredient[] ingredients = orderService.getIngredientsByOrder(order.getId());
             responseOrders.add(new OrderDTO(order.getClientName(), order.getClientPhone(), order.getCost(), order.getDate(), ingredients));
         }
-        ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("orders", responseOrders);
-        modelAndView.setViewName("orderList");
         return modelAndView;
     }
 
     @PostMapping("/orders/add")
-    public ModelAndView addOrder(@ModelAttribute("name") String name,
+    public void addOrder(@ModelAttribute("name") String name,
                                  @ModelAttribute("phone") String phone,
                                  @ModelAttribute("cost") String cost,
                                  @ModelAttribute("ingredients") String ingredientsString){
@@ -49,8 +48,5 @@ public class OrderController {
         for(String ingredient: ingredients){
             orderService.addIngredientToOrder(order.getId(), ingredient);
         }
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("done"); // dont work
-        return modelAndView;
     }
 }

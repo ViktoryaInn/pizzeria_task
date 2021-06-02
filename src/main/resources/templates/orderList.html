@@ -56,7 +56,7 @@
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="row-wrap">
       <div class="col" th:each="order: ${orders}">
-      <div class="card">
+      <div class="card" style="margin-top: 30px;">
         <div class="card-body">
           <h4 class="card-title">New order!</h4>
           <p class="card-text">
@@ -81,22 +81,6 @@
     </div>
     </div>
   </div>
-
-  <!--  <a href="/"><button type="button" class="btn btn-outline-secondary">На главную</button></a>-->
-
-  <!--  <p><a th:if="${user}" th:href="@{/logout}">Logout</a></p>-->
-<!--  <div th:each="order: ${orders}">-->
-<!--    <div class="ingredient">-->
-<!--      <form>-->
-<!--        <p  th:text="'Client name: ' + ${order.getClientName()}"></p>-->
-<!--        <p  th:text="'Client phone: ' + ${order.getClientPhone()}"></p>-->
-<!--        <p  th:text="'Client order cost: ' + ${order.getCost()}"></p>-->
-<!--        <ul>-->
-<!--          <li th:each="ingredient: ${order.ingredients}" th:text="'Ingredient: ' + ${ingredient.getName()} + ' - ' + ${ingredient.getPrice()}"></li>-->
-<!--        </ul>-->
-<!--      </form>-->
-<!--    </div>-->
-<!--  </div>-->
 </div>
 </body>
 </html>

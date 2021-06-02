@@ -30,7 +30,7 @@
         </div>
     </nav>
 
-    <div class="container" style="max-width: 720px; margin-top: 10%">
+    <div class="container" style="max-width: 720px; padding-top: 10%">
         <div class="card">
             <form th:action='${"/ingredients/change/" + ingredient.getId()}' method="post"  name="ingredientForm" class="card-body">
                 <div class="mb-3">
@@ -45,62 +45,5 @@
             </form>
         </div>
     </div>
-
-<!--  <div>-->
-<!--    <div>-->
-<!--      <a href="/"><button>На главную</button></a>-->
-<!--      <div class="ingredient">-->
-<!--        <form th:action='${"/ingredients/change/" + ingredient.getId()}' method="post" name="ingredientForm">-->
-<!--          <input type="text" name="name" th:value="${ingredient.getName()}"/>-->
-<!--          <input type="number" name="price" th:value="${ingredient.getPrice()}"/>-->
-<!--          <button class="btn btn-sm submit-btn" id="submit" type="submit">Change</button>-->
-<!--        </form>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
 </body>
 </html>
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>ChangeIngredient</title>-->
-<!--    <script type="text/javascript" th:inline="javascript"></script>-->
-<!--    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
-<!--</head>-->
-<!--<header>-->
-<!--    <h2>Change Ingredient</h2>-->
-<!--</header>-->
-<!--<body>-->
-<!--<div>-->
-<!--    <div>-->
-<!--        <a href="/"><button>На главную</button></a>-->
-<!--        <div class="ingredient">-->
-<!--            <form name="ingredientForm">-->
-<!--                <p th:text="'id:' + ${ingredient.getId()}" style="display: none;"/>-->
-<!--                <input name="name" th:value="${ingredient.getName()}"/>-->
-<!--                <input name="price" th:value="${ingredient.getPrice()}"/>-->
-<!--                <button class="btn btn-sm submit-btn" id="submit" th:attr="data-ingredient-id=${ingredient.getId()}">Change</button>-->
-<!--                &lt;!&ndash;          <p  th:text="'Ingredient name: ' + ${ingredient.getName()}"></p>&ndash;&gt;-->
-<!--                &lt;!&ndash;          <p  th:text="'ingredient price: ' + ${ingredient.getPrice()}"></p>&ndash;&gt;-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!--<script>-->
-<!--    $(".submit-btn").click((e) => {-->
-<!--        e.preventDefault();-->
-<!--        let btn = $(e.currentTarget);-->
-<!--        let ingredientId = btn.attr("data-ingredient-id");-->
-<!--        let form = document.forms.ingredientForm;-->
-<!--        $.post("/ingredients/change/" + ingredientId, {-->
-<!--            id: ingredientId,-->
-<!--            name: form.elements.name.value,-->
-<!--            price: form.elements.price.value-->
-<!--        });-->
-<!--    });-->
-<!--</script>-->
-<!--</body>-->
-<!--</html>-->

@@ -24,10 +24,8 @@ public class ShowController {
     public ModelAndView index() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentUserName = authentication.getName();
-        System.out.println("-----------------------------------------------" + currentUserName);
         ModelAndView modelAndView = new ModelAndView();
         if(!currentUserName.equals("anonymousUser")){
-//            modelAndView.addObject("user", "");
             modelAndView.addObject("user", currentUserName);
             Ingredient[] ingredients = ingredientService.getIngredientsList();
             modelAndView.addObject("ingredients", ingredients);
