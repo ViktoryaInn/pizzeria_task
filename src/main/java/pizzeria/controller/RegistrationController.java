@@ -1,4 +1,4 @@
-package pizzeria.controllers;
+package pizzeria.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ public class RegistrationController {
     static final Logger logger = LoggerFactory.getLogger(ShowController.class);
 
     @Autowired
-    private UserService userService;
+    UserService userService;
 
     @GetMapping("/registration")
     public String registration() {

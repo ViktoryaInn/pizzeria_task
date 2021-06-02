@@ -1,4 +1,4 @@
-package pizzeria.controllers;
+package pizzeria.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,18 +12,16 @@ import pizzeria.dbService.dataSets.Ingredient;
 import pizzeria.service.IngredientService;
 import pizzeria.service.UserService;
 
-import java.util.List;
-
 @Controller
 public class ShowController {
 
     static final Logger logger = LoggerFactory.getLogger(ShowController.class);
 
     @Autowired
-    private IngredientService ingredientService;
+    IngredientService ingredientService;
 
     @Autowired
-    private UserService userService;
+    UserService userService;
 
     @GetMapping("/")
     public ModelAndView index() {

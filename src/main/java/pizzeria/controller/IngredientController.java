@@ -1,4 +1,4 @@
-package pizzeria.controllers;
+package pizzeria.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +15,7 @@ public class IngredientController {
     static final Logger logger = LoggerFactory.getLogger(ShowController.class);
 
     @Autowired
-    private IngredientService ingredientService;
+    IngredientService ingredientService;
 
     @GetMapping("/ingredients/add")
     public ModelAndView getAddViewIngredient(){
