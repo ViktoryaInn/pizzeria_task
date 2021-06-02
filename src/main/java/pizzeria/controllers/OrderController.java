@@ -1,5 +1,7 @@
 package pizzeria.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,9 @@ import java.util.LinkedList;
 
 @Controller
 public class OrderController {
+
+    static final Logger logger = LoggerFactory.getLogger(ShowController.class);
+
     @Autowired
     OrderService orderService;
 
@@ -25,7 +30,9 @@ public class OrderController {
         Order[] orders = orderService.getOrderList();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("orderList");
+        logger.info("Страница заказов");
         if(orders.length == 0){
+            logger.info("Список заказов пуст");
             return modelAndView;
         }
         LinkedList<OrderDTO> responseOrders = new LinkedList<>();
@@ -33,6 +40,7 @@ public class OrderController {
             Ingredient[] ingredients = orderService.getIngredientsByOrder(order.getId());
             responseOrders.add(new OrderDTO(order.getClientName(), order.getClientPhone(), order.getCost(), order.getDate(), ingredients));
         }
+        logger.info("Выведены все заказы");
         modelAndView.addObject("orders", responseOrders);
         return modelAndView;
     }
@@ -48,5 +56,6 @@ public class OrderController {
         for(String ingredient: ingredients){
             orderService.addIngredientToOrder(order.getId(), ingredient);
         }
+        logger.info(String.format("Заказ для «%s» создан", name));
     }
 }

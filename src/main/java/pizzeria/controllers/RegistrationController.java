@@ -1,5 +1,7 @@
 package pizzeria.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +14,14 @@ import pizzeria.service.UserService;
 @Controller
 public class RegistrationController {
 
+    static final Logger logger = LoggerFactory.getLogger(ShowController.class);
+
     @Autowired
     private UserService userService;
 
     @GetMapping("/registration")
     public String registration() {
+        logger.info("Страница регистрации");
         return "registration";
     }
 
@@ -27,10 +32,12 @@ public class RegistrationController {
         ModelAndView modelAndView = new ModelAndView();
         if(userService.findByLogin(login) == null){
             userService.register(new Usr(login, password, "USER"));
+            logger.info(String.format("Пользователь «%s» успешно зарегистрирован", login));
             modelAndView.setViewName("login");
         }else {
             modelAndView.setViewName("registration");
             modelAndView.addObject("error", true);
+            logger.info(String.format("Пользователь с логином «%s» уже существует", login));
         }
         return modelAndView;
     }
